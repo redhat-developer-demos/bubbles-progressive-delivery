@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: bubble-backend
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  host: bubble-backend
+  subsets:
+  - labels:
+      version: v1
+    name: version-v1
+  - labels:
+      version: v2
+    name: version-v2

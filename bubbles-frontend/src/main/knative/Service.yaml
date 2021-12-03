@@ -1,0 +1,14 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: bubblefrontend
+spec:
+  template:
+    spec:
+      serviceAccountName: bubblefrontend
+      containers:
+      - image: quay.io/rhdevelopers/bubble-frontend:v1.0
+        env:
+          - name: ORG_ACME_BUBBLESERVICE_MP_REST_URL
+            value: http://bubble-backend-bubbles-serverless.apps.openshift.sotogcp.com
+          

@@ -1,0 +1,23 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: bubblebackend
+spec:
+  template:
+    metadata:
+      name: bubblebackend-2
+    spec:
+      containers:
+      - image: quay.io/rhdevelopers/bubble-backend:v1.0
+        ports:
+        - containerPort: 8080
+        env:
+            - name: BUBBLE_COLOR
+              value: blue
+  traffic:
+  - tag: v1
+    revisionName: bubblebackend-1
+    percent: 100
+  - tag: v2
+    revisionName: bubblebackend-2
+    percent: 0

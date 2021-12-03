@@ -1,0 +1,10 @@
+apiVersion: serving.knative.dev/v1
+kind: Route
+metadata:
+  name: bubble-backend
+spec:
+  traffic:
+    - revisionName: bubblebackend-1
+      percent: 100
+    - revisionName: bubblebackend-2
+      percent: 0

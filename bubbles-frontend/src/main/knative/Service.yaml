@@ -2,6 +2,8 @@ apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
   name: bubblefrontend
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"   
 spec:
   template:
     spec:

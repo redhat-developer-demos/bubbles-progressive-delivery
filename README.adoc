@@ -1,0 +1,37 @@
+= Bubbles Example with Progressive Delivery
+
+== Container creation
+
+=== Backend
+
+[source, bash]
+----
+./mvnw clean package -DskipTests -Dquarkus.container-image.push=true
+----
+
+=== Frontend
+
+[source, bash]
+----
+./mvnw clean package -DskipTests -Dquarkus.container-image.push=true
+
+./mvnw clean package -DskipTests -Pistio -Dquarkus.container-image.push=true -Dquarkus.container-image.tag=v1.0-istio
+----
+
+== Deployment
+
+=== Istio
+
+[source, bash]
+----
+cd scripts/istio
+./deploy.sh
+----
+
+=== KNative
+
+[source, bash]
+----
+cd scripts/knative
+./deploy.sh
+----

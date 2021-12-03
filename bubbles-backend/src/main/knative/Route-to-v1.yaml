@@ -2,6 +2,8 @@ apiVersion: serving.knative.dev/v1
 kind: Route
 metadata:
   name: bubble-backend
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   traffic:
     - revisionName: bubblebackend-1

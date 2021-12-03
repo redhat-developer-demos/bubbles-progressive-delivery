@@ -1,6 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: bgdk
+namespace: bubbles-istio
 resources:
 - ../kubernetes/Deployment.yaml
 - ../kubernetes/Deployment-v2.yaml

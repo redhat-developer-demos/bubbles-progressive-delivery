@@ -2,8 +2,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: bubbles-istio
 resources:
-- ../kubernetes/Deployment.yaml
-- ../kubernetes/Deployment-v2.yaml
-- ../kubernetes/Service.yaml
+- Deployment.yaml
+- Deployment-v2.yaml
+- Service.yaml
 - destination-rule-bubble-backend-v1-v2.yaml
 - virtual-service-bubble-backend-v1_and_v2_100_0.yaml

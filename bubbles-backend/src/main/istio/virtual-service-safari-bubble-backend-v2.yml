@@ -8,13 +8,13 @@ spec:
   http:
   - match:
     - headers:
-        baggage-user-agent:
-          regex: .*Safari.*
+        user-agent:
+          regex: .*Chrome.*
     route:
     - destination:
         host: bubble-backend
-        subset: version-v2
+        subset: version-v1
   - route:
     - destination:
         host: bubble-backend
-        subset: version-v1
+        subset: version-v2

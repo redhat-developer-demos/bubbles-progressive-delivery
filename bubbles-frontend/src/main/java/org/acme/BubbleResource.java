@@ -3,15 +3,19 @@ package org.acme;
 import java.net.UnknownHostException;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.json.Json;
 import javax.json.JsonObject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.WebApplicationException;
 
 import org.eclipse.microprofile.rest.client.inject.RestClient;
+import org.jboss.logging.Logger;
 
 import io.fabric8.kubernetes.api.model.GenericKubernetesResource;
 import io.fabric8.kubernetes.client.KubernetesClient;
@@ -20,6 +24,8 @@ import io.fabric8.kubernetes.client.dsl.base.ResourceDefinitionContext;
 @Path("/bubble")
 public class BubbleResource {
    
+    private AtomicLong errors = new AtomicLong();
+
     @RestClient
     BubbleService bubbleService;
 
@@ -29,11 +35,24 @@ public class BubbleResource {
     @Inject
     Hosts hosts;
 
+    @Inject
+    Logger log;
+
     @GET
     public JsonObject bubble() throws UnknownHostException {
-        final JsonObject bubble = bubbleService.bubble();
-        statistics.add(bubble);
-        return bubble;
+        try {
+            JsonObject bubble = bubbleService.bubble();
+            statistics.add(bubble);
+            return bubble;
+        } catch(WebApplicationException e) {
+            JsonObject bubble = Json.createObjectBuilder().add("color", "yellow")
+                .add("hostname", "error")
+                .add("requests", errors.incrementAndGet()).build();
+
+            //System.out.println(e.getResponse().readEntity(JsonObject.class));
+            statistics.add(bubble);
+            return bubble;
+        }
     }
 
     @GET

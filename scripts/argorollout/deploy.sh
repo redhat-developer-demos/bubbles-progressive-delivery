@@ -2,8 +2,8 @@
 
 echo "###### Deploying FrontEnd ######"
 
-kubectl apply -f ../../bubbles-frontend/src/main/kubernetes/Deployment.yaml
-kubectl apply -f ../../bubbles-frontend/src/main/kubernetes/Service.yaml
+kubectl apply -f ../../bubbles-frontend/src/main/istio/Deployment.yaml
+kubectl apply -f ../../bubbles-frontend/src/main/istio/Service.yaml
 
 kubectl wait --for=condition=available --timeout=600s deployment/bubblefrontend
 

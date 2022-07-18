@@ -15,7 +15,7 @@ kubectl apply -f ../../bubbles-backend/src/main/kubernetes/Deployment.yaml
 kubectl apply -f ../../bubbles-backend/src/main/kubernetes/Deployment-v2.yaml
 kubectl apply -f ../../bubbles-backend/src/main/kubernetes/Service.yaml
 
-kubectl wait --for=condition=available --timeout=600s deployment/bubblebackend
+kubectl wait --for=condition=available --timeout=600s deployment/bubblebackend-v1
 kubectl wait --for=condition=available --timeout=600s deployment/bubblebackend-v2
 
 echo "###### Redirecting Traffic to V1 ######"

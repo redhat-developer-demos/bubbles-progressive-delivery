@@ -57,7 +57,7 @@ spec:
       containers:
       - env:
         - name: JAVA_OPTIONS
-          value: -Xms15m -Xmx15m -Xmn15m
+          value: -Xms500m -Xmx500m -Xmn500m
         name: bubblefrontend
         image: quay.io/rhdevelopers/bubble-frontend:v1.0-istio
         imagePullPolicy: Always

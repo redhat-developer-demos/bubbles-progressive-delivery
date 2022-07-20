@@ -47,10 +47,7 @@ spec:
         sidecar.istio.io/inject: "true"
     spec:
       containers:
-      - env:
-        - name: JAVA_OPTIONS
-          value: -Xms15m -Xmx15m -Xmn15m
-        name: bubblefrontend
+      - name: bubblefrontend
         image: quay.io/rhdevelopers/bubble-frontend:v1.0
         imagePullPolicy: Always
         ports:

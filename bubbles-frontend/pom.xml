@@ -136,7 +136,7 @@
                 </goals>
                 <configuration>
                   <sourceFile>${project.build.outputDirectory}/META-INF/resources/script-istio.js</sourceFile>
-                  <destinationFile>${project.build.outputDirectory}//META-INF/resources/script.js</destinationFile>
+                  <destinationFile>${project.build.outputDirectory}/META-INF/resources/script.js</destinationFile>
                 </configuration>
               </execution>
             </executions>

@@ -1,0 +1,61 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: bubblebackend
+  labels:
+    app: bubblebackend
+spec:
+  strategy:
+    canary:
+      analysis:
+        startingStep: 2 # delay starting analysis run until setWeight: 40
+        args:
+        - name: service-name
+          value: bubble-backend-canary.bubbles-istio.svc.cluster.local
+        templates:
+          - templateName: success-rate
+      steps:
+      - setWeight: 30
+      - pause: { duration: 20s }
+      - setWeight: 40
+      - pause: { duration: 10s }
+      - setWeight: 60
+      - pause: { duration: 10s }
+      - setWeight: 80
+      - pause: { duration: 5s }
+      - setWeight: 90
+      - pause: { duration: 5s }
+      - setWeight: 100
+      - pause: { duration: 5s }
+      canaryService: bubble-backend-canary
+      stableService: bubble-backend
+      trafficRouting:
+        istio:
+           virtualService: 
+            name: bubble-backend 
+            routes:
+            - primary 
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: bubblebackend
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: bubblebackend
+        version: v1
+      annotations:
+        sidecar.istio.io/inject: "true"
+    spec:
+      containers:
+      - name: bubblebackend 
+        image: quay.io/rhdevelopers/bubble-backend:v1.0-native
+        env:
+        - name: BUBBLE_COLOR
+          value: blue
+        imagePullPolicy: Always
+        ports:
+        - name: web
+          containerPort: 8080

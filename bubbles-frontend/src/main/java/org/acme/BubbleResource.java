@@ -20,6 +20,7 @@ import org.jboss.logging.Logger;
 import io.fabric8.kubernetes.api.model.GenericKubernetesResource;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.kubernetes.client.dsl.base.ResourceDefinitionContext;
+import io.quarkus.runtime.configuration.ProfileManager;
 
 @Path("/bubble")
 public class BubbleResource {
@@ -69,7 +70,7 @@ public class BubbleResource {
     @GET
     @Path("/kn/{name}")
     public Hosts getKNativeRoute(@PathParam("name") String knativeRouteName) {
-        if (kubernetesClient != null) {
+        if (kubernetesClient != null && ProfileManager.getActiveProfile() != "dev") {
             GenericKubernetesResource kNativeRoute = getKNativeRouteDefinition(knativeRouteName);
 
             if (kNativeRoute != null) {

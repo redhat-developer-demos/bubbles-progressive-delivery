@@ -8,14 +8,14 @@
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <maven.compiler.parameters>true</maven.compiler.parameters>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-    <quarkus.platform.version>2.5.0.Final</quarkus.platform.version>
-    <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
+    <quarkus.platform.version>2.16.5.Final</quarkus.platform.version>
+    <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -98,7 +98,9 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${compiler-plugin.version}</version>
         <configuration>
-          <parameters>${maven.compiler.parameters}</parameters>
+          <compilerArgs>
+            <arg>-parameters</arg>
+          </compilerArgs>
         </configuration>
       </plugin>
       <plugin>
@@ -115,45 +117,19 @@
   </build>
   <profiles>
     <profile>
-      <id>istio</id>
-      <activation>
-        <property>
-          <name>istio</name>
-        </property>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>com.coderplus.maven.plugins</groupId>
-            <artifactId>copy-rename-maven-plugin</artifactId>
-            <version>1.0</version>
-            <executions>
-              <execution>
-                <id>copy-and-rename-file</id>
-                <phase>compile</phase>
-                <goals>
-                  <goal>rename</goal>
-                </goals>
-                <configuration>
-                  <sourceFile>${project.build.outputDirectory}/META-INF/resources/script-istio.js</sourceFile>
-                  <destinationFile>${project.build.outputDirectory}/META-INF/resources/script.js</destinationFile>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-      <properties>
-        <quarkus.container-image.tag>v1.0-istio</quarkus.container-image.tag>
-      </properties>
-    </profile>
-    <profile>
       <id>native</id>
       <activation>
         <property>
           <name>native</name>
         </property>
       </activation>
+      <properties>
+        <skipITs>false</skipITs>
+        <quarkus.package.type>native</quarkus.package.type>
+      </properties>
+    </profile>
+    <profile>
+      <id>failsafe</id>
       <build>
         <plugins>
           <plugin>
@@ -163,7 +139,6 @@
               <execution>
                 <goals>
                   <goal>integration-test</goal>
-                  <goal>verify</goal>
                 </goals>
                 <configuration>
                   <systemPropertyVariables>
@@ -177,9 +152,6 @@
           </plugin>
         </plugins>
       </build>
-      <properties>
-        <quarkus.package.type>native</quarkus.package.type>
-      </properties>
     </profile>
   </profiles>
 </project>

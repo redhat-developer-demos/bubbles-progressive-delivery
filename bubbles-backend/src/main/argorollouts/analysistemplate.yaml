@@ -16,7 +16,7 @@ spec:
     failureLimit: 2
     provider:
       prometheus:
-        address: https://internal:bubbles-argorollouts@prometheus.istio-system.svc.cluster.local:9090
+        address: https://internal:demo@prometheus.istio-system.svc.cluster.local:9090
         query: |
           sum(irate(istio_requests_total{
             reporter="source",

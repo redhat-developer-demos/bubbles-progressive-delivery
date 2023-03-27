@@ -9,13 +9,17 @@ resources:
 - Service.yaml
 - virtual-service-bubble-backend-v1_and_v2_100_0.yaml
 
-patchesJson6902:
-  - target:
-      version: v1alpha1
-      group: argoproj.io
-      kind: Rollout
-      name: bubble-backend
-    patch: |-
-      - op: replace
-        path: /spec/template/spec/containers/0/env/BUBBLE_COLOR
-        value: red
+patchesStrategicMerge:
+  - | 
+    apiVersion: argoproj.io/v1alpha1
+    kind: Rollout
+    metadata:
+      name: bubblebackend
+    spec:
+      template:
+        spec:
+          containers:
+          - name: bubblebackend 
+            env:
+            - name: BUBBLE_COLOR
+              value: red

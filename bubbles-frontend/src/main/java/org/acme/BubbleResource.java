@@ -20,10 +20,6 @@ import org.jboss.logging.Logger;
 import io.fabric8.kubernetes.api.model.GenericKubernetesResource;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.kubernetes.client.dsl.base.ResourceDefinitionContext;
-import io.quarkus.runtime.configuration.ProfileManager;
-import io.quarkus.logging.Log;
-import io.quarkus.runtime.configuration.ConfigUtils;
-import io.quarkus.runtime.configuration.ProfileManager;
 
 @Path("/bubble")
 public class BubbleResource {

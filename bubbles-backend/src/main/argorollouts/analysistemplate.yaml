@@ -20,6 +20,6 @@ spec:
         query: |
           sum(irate(istio_requests_total{
             reporter="source",
-            destination_service=~"{{args.service-name}}",
+            destination_app=~"{{args.destination-app}}",
             response_code!~"5.*"}[30s])
           )

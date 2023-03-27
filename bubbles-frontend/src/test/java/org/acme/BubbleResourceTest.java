@@ -39,7 +39,7 @@ public class BubbleResourceTest {
           .when().get("/bubble/vs/bubble-backend")
           .then()
              .statusCode(200)
-             .body(is("Hello"));
+             .body(is("{\"hosts\":[\"bubble-backend\",\"bubble-backend-canary\"],\"stats\":{\"bubble-backend\":100,\"bubble-backend-canary\":0}}"));
     }
 
 }

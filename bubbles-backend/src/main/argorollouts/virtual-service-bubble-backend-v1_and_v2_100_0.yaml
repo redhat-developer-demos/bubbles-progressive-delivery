@@ -13,4 +13,9 @@ spec:
     - destination:
         host: bubble-backend-canary
       weight: 0
+    fault:
+      abort:
+        percentage:
+          value: 90
+        httpStatus: 503
     name: primary

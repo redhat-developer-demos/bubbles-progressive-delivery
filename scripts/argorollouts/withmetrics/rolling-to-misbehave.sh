@@ -1,3 +1,3 @@
 #!/bin/bash
 
-kubectl apply -f ../../bubbles-backend/src/main/argorollouts/rollout-metrics-misbehave.yaml
+kubectl apply -f ../../bubbles-backend/src/main/argorollouts-metrics/rollout-metrics-misbehave.yaml

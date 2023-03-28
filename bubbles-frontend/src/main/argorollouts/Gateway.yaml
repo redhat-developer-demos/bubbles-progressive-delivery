@@ -29,9 +29,9 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /
+        prefix: /bubble
     rewrite:
-      uri: /
+      uri: /bubble
     route:
     - destination:
         host: bubble-frontend

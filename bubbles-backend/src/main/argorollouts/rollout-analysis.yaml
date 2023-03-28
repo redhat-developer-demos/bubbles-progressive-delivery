@@ -51,7 +51,7 @@ spec:
     spec:
       containers:
       - name: bubblebackend 
-        image: quay.io/rhdevelopers/bubble-backend:v1.0-native
+        image: quay.io/rhdevelopers/bubble-backend:v1.0
         env:
         - name: BUBBLE_COLOR
           value: blue

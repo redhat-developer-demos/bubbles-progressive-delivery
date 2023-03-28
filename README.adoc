@@ -28,11 +28,29 @@ cd scripts/istio
 ./deploy.sh
 ----
 
-=== Argo Rollouts
+=== Argo Rollouts 
+
+install Argo Rollouts:
 
 [source, bash]
 ----
-cd scripts/argorollouts
+cd scripts/argorollouts/
+./install_rollout.sh
+----
+
+==== Argo Rollouts without Prometheus/Analytics
+
+[source, bash]
+----
+cd scripts/argorollouts/withoutanalytics
+./deploy.sh
+----
+
+==== Argo Rollouts WITH Prometheus/Analytics
+
+[source, bash]
+----
+cd scripts/argorollouts/withanalytics
 ./deploy.sh
 ----
 

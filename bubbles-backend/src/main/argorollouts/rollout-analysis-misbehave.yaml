@@ -48,13 +48,14 @@ spec:
         version: v1
       annotations:
         sidecar.istio.io/inject: "true"
+    spec:
       containers:
-        - name: bubblebackend 
-          image: quay.io/rhdevelopers/bubble-backend:misbehave
-          env:
-          - name: BUBBLE_COLOR
-            value: red
-          imagePullPolicy: Always
-          ports:
-          - name: web
-            containerPort: 8080
+      - name: bubblebackend 
+        image: quay.io/rhdevelopers/bubble-backend:misbehave
+        env:
+        - name: BUBBLE_COLOR
+          value: blue
+        imagePullPolicy: Always
+        ports:
+        - name: web
+          containerPort: 8080

@@ -4,7 +4,7 @@ metadata:
   name: success-rate
 spec:
   args:
-  - name: destination-app
+  - name: destination-service-name
   metrics:
   - name: success-rate
     interval: 5s
@@ -20,6 +20,6 @@ spec:
         query: |
           sum(irate(istio_requests_total{
             reporter="source",
-            destination_app=~"{{args.destination-app}}",
+            destination_service_name=~"{{args.destination-service-name}}",
             response_code!~"5.*"}[30s])
           )

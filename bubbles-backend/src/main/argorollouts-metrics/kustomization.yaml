@@ -25,7 +25,7 @@ patchesStrategicMerge:
               image: quay.io/rhdevelopers/bubble-backend:v1.0 
               env:
               - name: BUBBLE_COLOR
-                value: blue
+                value: green
               imagePullPolicy: Always
               ports:
               - name: web

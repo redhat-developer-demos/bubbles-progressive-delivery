@@ -48,7 +48,7 @@ spec:
     spec:
       containers:
       - name: bubblefrontend
-        image: quay.io/rhdevelopers/bubble-frontend:v1.0
+        image: quay.io/rhdevelopers/bubble-frontend:v1.0-native
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

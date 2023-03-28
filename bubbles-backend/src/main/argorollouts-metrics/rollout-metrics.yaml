@@ -20,10 +20,8 @@ spec:
       - setWeight: 40
       - pause: { duration: 10s }
       - setWeight: 60
-      - pause: { duration: 10s }
-      - setWeight: 80
       - pause: { duration: 5s }
-      - setWeight: 90
+      - setWeight: 80
       - pause: { duration: 5s }
       - setWeight: 100
       - pause: { duration: 5s }

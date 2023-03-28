@@ -4,7 +4,7 @@ metadata:
   name: success-rate
 spec:
   args:
-  - name: service-name
+  - name: destination-app
   metrics:
   - name: success-rate
     interval: 5s

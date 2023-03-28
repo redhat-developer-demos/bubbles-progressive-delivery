@@ -31,7 +31,7 @@ spec:
     - uri:
         prefix: /bubble
     rewrite:
-      uri: /
+      uri: /bubble
     route:
     - destination:
         host: bubble-frontend

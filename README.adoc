@@ -38,19 +38,19 @@ cd scripts/argorollouts/
 ./install_rollout.sh
 ----
 
-==== Argo Rollouts without Prometheus/Analytics
+==== Argo Rollouts without Prometheus / Metrics
 
 [source, bash]
 ----
-cd scripts/argorollouts/withoutanalytics
+cd scripts/argorollouts/withoutmetrics
 ./deploy.sh
 ----
 
-==== Argo Rollouts WITH Prometheus/Analytics
+==== Argo Rollouts WITH Prometheus / Metrics 
 
 [source, bash]
 ----
-cd scripts/argorollouts/withanalytics
+cd scripts/argorollouts/withmetrics
 ./deploy.sh
 ----
 

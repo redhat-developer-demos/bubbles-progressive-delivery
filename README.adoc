@@ -28,6 +28,14 @@ cd scripts/istio
 ./deploy.sh
 ----
 
+=== Argo Rollouts
+
+[source, bash]
+----
+cd scripts/argorollouts
+./deploy.sh
+----
+
 === KNative
 
 [source, bash]

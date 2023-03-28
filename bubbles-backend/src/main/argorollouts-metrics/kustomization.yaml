@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: bubbles-argorollouts
 
 resources:
-- rollout-metrics-v2.yaml
+- rollout-metrics.yaml
 - analysistemplate.yaml
 - Service-canary.yaml
 - Service.yaml
@@ -25,7 +25,7 @@ patchesStrategicMerge:
               image: quay.io/rhdevelopers/bubble-backend:v1.0 
               env:
               - name: BUBBLE_COLOR
-                value: blue
+                value: red
               imagePullPolicy: Always
               ports:
               - name: web

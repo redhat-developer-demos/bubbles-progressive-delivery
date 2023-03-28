@@ -35,7 +35,7 @@ spec:
             name: bubble-backend 
             routes:
             - primary 
-  replicas: 5
+  replicas: 10
   revisionHistoryLimit: 2
   selector:
     matchLabels:

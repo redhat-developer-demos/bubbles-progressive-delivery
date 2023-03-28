@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bubbles-backend-kustomize-argorollouts-metrics
+  namespace: openshift-gitops # change to argocd if using minikube
+spec:
+  destination:
+    namespace: bubbles-argorollouts
+    server: https://kubernetes.default.svc 
+  project: default 
+  source: 
+    path: bubbles-backend/src/main/argorollouts-metrics
+    repoURL: https://github.com/redhat-developer-demos/bubbles-progressive-delivery.git
+    targetRevision: argorollouts
+  syncPolicy: 
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+    - CreateNamespace=true

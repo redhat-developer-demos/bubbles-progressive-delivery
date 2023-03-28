@@ -22,10 +22,10 @@ patchesStrategicMerge:
         spec:
           containers:
             - name: bubblebackend 
-              image: quay.io/rhdevelopers/bubble-backend:v1.0
+              image: quay.io/rhdevelopers/bubble-backend:misbehave
               env:
               - name: BUBBLE_COLOR
-                value: blue
+                value: green
               imagePullPolicy: Always
               ports:
               - name: web

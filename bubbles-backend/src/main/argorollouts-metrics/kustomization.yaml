@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: bubbles-argorollouts
 
 resources:
-- rollout-metrics.yaml
+- rollout-metrics-v2.yaml
 - analysistemplate.yaml
 - Service-canary.yaml
 - Service.yaml

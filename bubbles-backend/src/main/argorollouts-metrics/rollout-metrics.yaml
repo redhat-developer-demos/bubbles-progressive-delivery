@@ -24,7 +24,6 @@ spec:
       - setWeight: 80
       - pause: { duration: 5s }
       - setWeight: 100
-      - pause: { duration: 5s }
       canaryService: bubble-backend-canary
       stableService: bubble-backend
       trafficRouting:

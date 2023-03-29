@@ -3,11 +3,15 @@ apiVersion: "v1"
 kind: ServiceAccount
 metadata:
   name: bubblefrontend
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: bubblefrontend-view
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 roleRef:
   kind: ClusterRole
   apiGroup: rbac.authorization.k8s.io
@@ -20,6 +24,8 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: view
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 rules:
   - apiGroups: ["networking.istio.io"]
     resources: ["virtualservices"]
@@ -32,6 +38,8 @@ metadata:
     app: bubblefrontend
     version: v1
   name: bubblefrontend
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   replicas: 1
   selector:
@@ -48,7 +56,7 @@ spec:
     spec:
       containers:
       - name: bubblefrontend
-        image: quay.io/rhdevelopers/bubble-frontend:v1.0-native
+        image: quay.io/rhdevelopers/bubble-frontend:v1.0-ar
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

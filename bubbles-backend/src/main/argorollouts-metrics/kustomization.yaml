@@ -1,0 +1,34 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: bubbles-argorollouts
+
+resources:
+- rollout-metrics.yaml
+- analysistemplate.yaml
+- Service-canary.yaml
+- Service.yaml
+- virtual-service-bubble-backend-v1_and_v2_100_0.yaml
+# - virtual-service-bubble-backend-503.yaml
+
+
+patchesStrategicMerge:
+  - | 
+    apiVersion: argoproj.io/v1alpha1
+    kind: Rollout
+    metadata:
+      name: bubblebackend
+    spec:
+      template:
+        spec:
+          containers:
+            - name: bubblebackend 
+              image: quay.io/rhdevelopers/bubble-backend:misbehave
+              env:
+              - name: BUBBLE_COLOR
+                value: green
+              imagePullPolicy: Always
+              ports:
+              - name: web
+                containerPort: 8080
+# replace with this image to return errors: quay.io/rhdevelopers/bubble-backend:misbehave (colored yellow)
+# change BUBBLE_COLOR to another color to change the color. 

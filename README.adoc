@@ -28,6 +28,32 @@ cd scripts/istio
 ./deploy.sh
 ----
 
+=== Argo Rollouts 
+
+install Argo Rollouts:
+
+[source, bash]
+----
+cd scripts/argorollouts/
+./install_rollout.sh
+----
+
+==== Argo Rollouts without Prometheus / Metrics
+
+[source, bash]
+----
+cd scripts/argorollouts/withoutmetrics
+./deploy.sh
+----
+
+==== Argo Rollouts WITH Prometheus / Metrics 
+
+[source, bash]
+----
+cd scripts/argorollouts/withmetrics
+./deploy.sh
+----
+
 === KNative
 
 [source, bash]

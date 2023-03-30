@@ -11,7 +11,7 @@ spec:
   source: 
     path: bubbles-backend/src/main/argorollouts-metrics
     repoURL: https://github.com/redhat-developer-demos/bubbles-progressive-delivery.git
-    targetRevision: argorollouts
+    targetRevision: main
   syncPolicy: 
     automated:
       prune: true

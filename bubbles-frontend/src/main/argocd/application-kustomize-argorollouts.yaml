@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: bubbles-frontend-kustomize-argorollouts
+  name: bubbles-frontend
   namespace: openshift-gitops # change to argocd if using minikube
 spec:
   destination:

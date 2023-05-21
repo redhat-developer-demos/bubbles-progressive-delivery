@@ -22,7 +22,7 @@ patchesStrategicMerge:
         spec:
           containers:
             - name: bubblebackend 
-              image: quay.io/rhdevelopers/bubble-backend:green
+              image: quay.io/rhdevelopers/bubble-backend:misbehave
               env:
               - name: BUBBLE_COLOR
                 value: green

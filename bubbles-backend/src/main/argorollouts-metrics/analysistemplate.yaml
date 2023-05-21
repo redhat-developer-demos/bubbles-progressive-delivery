@@ -12,7 +12,7 @@ spec:
     # So it is common to access the index 0 of the returned array to obtain the value
     # SEE: https://argoproj.github.io/argo-rollouts/features/analysis/#prometheus
     ####successCondition: len(result) > 0 && result[0] >= 0.95
-    successCondition: len(result) > 0 && result[0] >= 0.80
+    successCondition: len(result) == 0 || result[0] >= 0.95
     failureLimit: 2
     provider:
       prometheus:
@@ -22,3 +22,4 @@ spec:
             app="bubblebackend",
             response_code!~"5.*"}[20s])
           )
+green

@@ -110,19 +110,19 @@ setInterval(function () {
     }
     createTable(statistics, routes)
   })
-}, 400)
+}, 200)
 
-setInterval(function () {
-  fetch("/bubble/statistics")
-  .then(response => response.json())
-  .then(data => {
-    let hosts = data.hosts
-    const statistics = []
-    for (let hostId in hosts) {
-      let host = hosts[hostId]
-      let counter = data.requests[host]
-      statistics.push(host + " : " + counter)
-    }
-    createTable(statistics, stats)
-  })
-}, 400)
+// setInterval(function () {
+//   fetch("/bubble/statistics")
+//   .then(response => response.json())
+//   .then(data => {
+//     let hosts = data.hosts
+//     const statistics = []
+//     for (let hostId in hosts) {
+//       let host = hosts[hostId]
+//       let counter = data.requests[host]
+//       statistics.push(host + " : " + counter)
+//     }
+//     createTable(statistics, stats)
+//   })
+// }, 400)

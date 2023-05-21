@@ -22,7 +22,7 @@ patchesStrategicMerge:
         spec:
           containers:
             - name: bubblebackend 
-              image: quay.io/rhdevelopers/bubble-backend:v1.0
+              image: quay.io/rhdevelopers/bubble-backend:misbehave
               env:
               - name: BUBBLE_COLOR
                 value: green
@@ -32,3 +32,4 @@ patchesStrategicMerge:
                 containerPort: 8080
 # replace with this image to return errors: quay.io/rhdevelopers/bubble-backend:misbehave (colored yellow)
 # change BUBBLE_COLOR to another color to change the color. 
+# quay.io/rhdevelopers/bubble-backend:v1.0

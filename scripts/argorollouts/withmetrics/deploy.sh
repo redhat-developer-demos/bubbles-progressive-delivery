@@ -16,7 +16,6 @@ kubectl apply -f ../../../bubbles-backend/src/main/argorollouts-metrics/Service-
 kubectl apply -f ../../../bubbles-backend/src/main/argorollouts-metrics/virtual-service-bubble-backend-v1_and_v2_100_0.yaml
 
 kubectl apply -f ../../../bubbles-backend/src/main/argorollouts-metrics/rollout-metrics.yaml
-kubectl apply -f ../../../bubbles-backend/src/main/argorollouts-metrics/kustomization.yaml
 kubectl apply -f ../../../bubbles-backend/src/main/argorollouts-metrics/analysistemplate.yaml
 
 kubectl get routes -n istio-system

@@ -85,7 +85,7 @@ setInterval(function () {
       .then(response => response.json())
       .then(data => new Bubble(data.color))
   });
-}, 400);
+}, 200);
 
 function createTable(statistics, tablerow) {
   tablerow.innerHTML='';

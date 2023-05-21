@@ -12,14 +12,13 @@ spec:
     # So it is common to access the index 0 of the returned array to obtain the value
     # SEE: https://argoproj.github.io/argo-rollouts/features/analysis/#prometheus
     ####successCondition: len(result) > 0 && result[0] >= 0.95
-    successCondition: len(result) == 0 || result[0] >= 0.80
+    successCondition: len(result) == 0 || result[0] >= 0.90
     failureLimit: 2
     provider:
       prometheus:
         address: https://internal:demo@prometheus.istio-system.svc.cluster.local:9090
         query: |
           sum(irate(istio_requests_total{
-            reporter="source",
-            destination_service_name=~"{{args.destination-service-name}}",
+            app="bubblebackend",,
             response_code!~"5.*"}[20s])
           )

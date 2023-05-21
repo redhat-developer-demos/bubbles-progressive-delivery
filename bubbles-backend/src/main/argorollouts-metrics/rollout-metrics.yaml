@@ -10,7 +10,7 @@ spec:
       analysis:
         startingStep: 2 # delay starting analysis run until setWeight: 40
         args:
-        - name: destination-service-name
+        - name: service-name
           value: bubble-backend-canary
         templates:
           - templateName: success-rate

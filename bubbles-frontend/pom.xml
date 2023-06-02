@@ -15,6 +15,7 @@
     <quarkus.platform.version>3.1.0.Final</quarkus.platform.version>
     <skipITs>true</skipITs>
     <surefire-plugin.version>3.0.0</surefire-plugin.version>
+    <quarkus.container-image.tag>v1.0</quarkus.container-image.tag>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -146,5 +147,71 @@
         <quarkus.package.type>native</quarkus.package.type>
       </properties>
     </profile>
-  </profiles>
+    <profile>
+      <id>istio</id>
+      <activation>
+        <property>
+          <name>istio</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.coderplus.maven.plugins</groupId>
+            <artifactId>copy-rename-maven-plugin</artifactId>
+            <version>1.0</version>
+            <executions>
+              <execution>
+                <id>copy-and-rename-file</id>
+                <phase>compile</phase>
+                <goals>
+                  <goal>rename</goal>
+                </goals>
+                <configuration>
+                  <sourceFile>${project.build.outputDirectory}/META-INF/resources/script-istio.js</sourceFile>
+                  <destinationFile>${project.build.outputDirectory}/META-INF/resources/script.js</destinationFile>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+      <properties>
+        <quarkus.container-image.tag>v1.0-istio</quarkus.container-image.tag>
+      </properties>
+    </profile>
+    <profile>
+      <id>argorollouts</id>
+      <activation>
+        <property>
+          <name>argorollouts</name>
+        </property>
+      </activation>
+      <properties>
+        <quarkus.container-image.tag>v1.0-argorollouts</quarkus.container-image.tag>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.coderplus.maven.plugins</groupId>
+            <artifactId>copy-rename-maven-plugin</artifactId>
+            <version>1.0</version>
+            <executions>
+              <execution>
+                <id>copy-and-rename-file</id>
+                <phase>compile</phase>
+                <goals>
+                  <goal>rename</goal>
+                </goals>
+                <configuration>
+                  <sourceFile>${project.build.outputDirectory}/META-INF/resources/script-argorollouts.js</sourceFile>
+                  <destinationFile>${project.build.outputDirectory}/META-INF/resources/script.js</destinationFile>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>      
+    </profile>
+  </profiles>  
 </project>

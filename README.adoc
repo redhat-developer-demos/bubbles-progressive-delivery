@@ -6,16 +6,18 @@
 
 [source, bash]
 ----
-./mvnw clean package -DskipTests -Dquarkus.container-image.push=true
+cd bubbles-backend && ./mvnw clean package -DskipTests -Dquarkus.container-image.push=true -Dnative && cd ..
 ----
 
 === Frontend
 
 [source, bash]
 ----
-./mvnw clean package -DskipTests -Dquarkus.container-image.push=true
+./mvnw clean package -DskipTests -Dquarkus.container-image.push=true -Dnative
 
-./mvnw clean package -DskipTests -Pistio -Dquarkus.container-image.push=true -Dquarkus.container-image.tag=v1.0-istio
+./mvnw clean package -DskipTests -Pistio -Dquarkus.container-image.push=true -Dnative
+
+./mvnw clean package -DskipTests -Pargorollouts -Dquarkus.container-image.push=true
 ----
 
 == Deployment
@@ -52,6 +54,9 @@ cd scripts/argorollouts/withoutmetrics
 ----
 cd scripts/argorollouts/withmetrics
 ./deploy.sh
+
+cd ../../..
+./scripts/argocd/deploy-argorollouts-metrics.sh
 ----
 
 === Knative

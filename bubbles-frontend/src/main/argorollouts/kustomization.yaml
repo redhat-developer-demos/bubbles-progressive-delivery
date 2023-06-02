@@ -6,5 +6,5 @@ resources:
 - Service.yaml
 - Gateway.yaml
 images:
-- digest: sha256:92a10ac1dbfa4fa200f513a525bd3ba7e36bca827e25a9d0795d4e0b8976b61b
-  name: quay.io/rhdevelopers/bubble-frontend:v1.0-ar
+- #digest: sha256:92a10ac1dbfa4fa200f513a525bd3ba7e36bca827e25a9d0795d4e0b8976b61b
+  name: quay.io/rhdevelopers/bubble-frontend:v1.0-argorollouts

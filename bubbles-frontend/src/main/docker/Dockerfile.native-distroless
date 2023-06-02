@@ -10,11 +10,11 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.native-micro -t quarkus/bubbles-frontend .
+# docker build -f src/main/docker/Dockerfile.native-micro -t quarkus/demo-app .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/bubbles-frontend
+# docker run -i --rm -p 8080:8080 quarkus/demo-app
 #
 ###
 FROM quay.io/quarkus/quarkus-micro-image:2.0

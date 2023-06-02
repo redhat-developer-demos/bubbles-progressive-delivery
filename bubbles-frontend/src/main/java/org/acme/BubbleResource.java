@@ -5,14 +5,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.json.Json;
-import javax.json.JsonObject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.WebApplicationException;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
+import jakarta.json.Json;
+import jakarta.json.JsonObject;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.WebApplicationException;
 
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.logging.Logger;

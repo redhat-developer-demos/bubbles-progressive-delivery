@@ -7,8 +7,8 @@ resources:
 - analysistemplate.yaml
 - Service-canary.yaml
 - Service.yaml
-# - virtual-service-bubble-backend-v1_and_v2_100_0.yaml
-- virtual-service-bubble-backend-503.yaml
+- virtual-service-bubble-backend-v1_and_v2_100_0.yaml
+# - virtual-service-bubble-backend-503.yaml
 
 
 patchesStrategicMerge:
@@ -22,7 +22,7 @@ patchesStrategicMerge:
         spec:
           containers:
             - name: bubblebackend 
-              image: quay.io/rhdevelopers/bubble-backend:v1.0
+              image: quay.io/rhdevelopers/bubble-backend:misbehave
               env:
               - name: BUBBLE_COLOR
                 value: blue

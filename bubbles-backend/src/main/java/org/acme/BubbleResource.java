@@ -77,7 +77,7 @@ public class BubbleResource {
                             counter.incrementAndGet()
                         );
 
-            log.infov("Generating {0} Bubble", b.color);
+            log.infov("Generating {0} Error Bubble", b.color);
             return Response.status(Response.Status.SERVICE_UNAVAILABLE).entity(b)
                             .build();
         }

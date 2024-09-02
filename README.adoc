@@ -40,6 +40,14 @@ cd scripts/argorollouts/
 ./install_rollout.sh
 ----
 
+To visualize rollout:
+
+[source, bash]
+----
+kubectl argo rollouts get rollout bubblebackend -w
+----
+
+
 ==== Argo Rollouts without Prometheus / Metrics
 
 [source, bash]

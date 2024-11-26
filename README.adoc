@@ -1,5 +1,7 @@
 = Bubbles Example with Progressive Delivery
 
+Slides: https://docs.google.com/presentation/d/1SwBPSuBH9MTYiJCLNKFmCDK8NJ3E4sbVVwrtpNt1QFY/edit?usp=sharing
+
 == Container creation
 
 === Backend
